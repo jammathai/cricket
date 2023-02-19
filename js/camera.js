@@ -6,9 +6,9 @@ const camera = {
         const relX = x - this.x;
         const relY = y - this.y;
         const relZ = z - this.z;
-        return {
-            x: relX + centerX,
-            y: relY * this.angle - relZ * (1 - this.angle) + centerY
-        };
+        return [
+            relX + centerX,
+            relY * this.angle - relZ * (1 - this.angle) + centerY
+        ];
     }
 };
