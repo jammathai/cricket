@@ -1,3 +1,4 @@
+const GRAVITY = 1;
 const TAU = 2 * Math.PI;
 
 const ball = {
@@ -25,5 +26,18 @@ const ball = {
         ctx.arc(x, y, this.radius, 0, TAU);
         ctx.closePath();
         ctx.fill();
+    },
+
+    update: function() {
+        this.x += this.velX;
+        this.y += this.velY;
+        this.z += this.velZ;
+
+        if (this.z < this.radius) {
+            this.z = this.radius;
+            this.velZ = 0;
+        } else {
+            this.velZ -= GRAVITY;
+        }
     }
-}
+};
